@@ -28,9 +28,8 @@ const Navbar = () => {
           <HStack spacing={2}>
             <Image src="https://cdn-icons-png.flaticon.com/512/2065/2065224.png" alt="Logo" boxSize="40px" />
             <Box fontSize="xl" fontWeight="bold" px={4}>
-              Review Now
+              Reviews
             </Box>
-
           </HStack>
         </Box>
         <Spacer />
