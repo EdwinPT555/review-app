@@ -1,15 +1,19 @@
 import React from "react";
 import Navbar from "../common/NavBar";
-import { Box } from "@chakra-ui/react";
+import { Box, useDisclosure } from "@chakra-ui/react";
 import Reviews from "./Reviews";
 import { IReview } from "../../types";
+import AddReviewButton from "../common/AddReviewButton";
+import ReviewForm from "../common/ReviewForm";
 
 const Home = () => {
-
+  const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <Box>
       <Navbar />
       <Reviews reviews={reviews}/>
+      <AddReviewButton onOpen={onOpen}/>
+      <ReviewForm isOpen={isOpen} onClose={onClose}/>
     </Box>
   );
 };
