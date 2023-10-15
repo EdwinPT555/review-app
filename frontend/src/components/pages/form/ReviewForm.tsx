@@ -89,35 +89,38 @@ const ReviewForm: React.FC<IProps> = ({ isOpen, onClose, setReviews }) => {
       });
       return;
     }
-    const { data, status } = await axios.post("http://localhost:3001/review/save",
-      {
-        user_name: "Edwin",
-        phone: "123456789",
-        main_app_goal: formData.goals,
-        app_usage_frequency: formData.frequency,
-        user_experience_rating: formData.rating,
-        improvements_suggested: formData.improvements,
-        birthday: formData.birthday,
-      });
-    if (status === 200) {
-      setReviews((prev) => {
-        return [...prev, data.review];
-      });
-      toast({
-        title: data.message,
-        status: "success",
-        duration: 3000,
-        isClosable: true,
-      });
-    } else {
+    try {
+      const { data, status } = await axios.post("http://localhost:3001/review/save",
+        {
+          user_name: "Edwin",
+          phone: "123456789",
+          main_app_goal: formData.goals,
+          app_usage_frequency: formData.frequency,
+          user_experience_rating: formData.rating,
+          improvements_suggested: formData.improvements,
+          birthday: formData.birthday,
+        });
+      if (status === 200) {
+        setReviews((prev) => {
+          return [...prev, data.review];
+        });
+        toast({
+          title: data.message,
+          status: "success",
+          duration: 3000,
+          isClosable: true,
+        });
+        onClose();
+      }
+    } catch (error) {
       toast({
         title: "Something went wrong",
         status: "error",
         duration: 3000,
         isClosable: true,
       });
+      onClose();
     }
-    onClose();
   }, [formData]);
 
   return (
