@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "../common/NavBar";
-import { Box, useDisclosure } from "@chakra-ui/react";
+import { Box, Flex, useDisclosure } from "@chakra-ui/react";
 import Reviews from "./Reviews";
 import { IReview } from "../../types";
 import AddReviewButton from "../common/AddReviewButton";
@@ -32,12 +32,12 @@ const Home = () => {
       }
     })();
   }, []);
-  
+
   return (
     <Box>
       <Navbar />
       {loading ?
-        <CircularProgress isIndeterminate /> :
+        <Flex justify="center"><CircularProgress isIndeterminate /> </Flex> :
         <Reviews reviews={reviews} />
       }
       <AddReviewButton onOpen={onOpen} />
