@@ -14,7 +14,7 @@ const AddReviewButton: React.FC<IProps> = ({onOpen}) => {
         py={6}
         borderRadius="full"
         boxShadow="lg"
-        backgroundColor="red.500"
+        backgroundColor="blue.500"
         color="white"
         _hover={{ backgroundColor: "blue.600" }}
         _active={{ backgroundColor: "blue.700" }}

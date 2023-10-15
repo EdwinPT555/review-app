@@ -9,8 +9,8 @@ const Reviews: React.FC<IProps> = ({ reviews }) => {
 
   return (
     <Accordion allowToggle width="100%" p={4}>
-      {reviews.map((review, index) => (
-        <ReviewCard key={index} index={index} reviews={review} />
+      {reviews?.map((review) => (
+        <ReviewCard key={+review?.id} reviews={review} />
       ))}
     </Accordion>
   );

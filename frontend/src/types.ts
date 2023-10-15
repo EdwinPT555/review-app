@@ -1,8 +1,13 @@
 export interface IReview {
-  username: string;
-  rating: number;
-  comment: string;
-  extra: string[];
+  id: string;
+  user_name: string;
+  phone: string;
+  main_app_goal: string[];
+  app_usage_frequency: string;
+  user_experience_rating: number;
+  improvements_suggested: string;
+  birthday: string;
+  posted_date: string;
 }
 
 export enum RatingScale {
@@ -17,6 +22,19 @@ export enum RatingScale {
   "Exceptional" = 9,
   "Perfect" = 10,
 }
+
+export const rating ={
+  1: "Very Bad",
+  2: "Bad",
+  3: "Not Good",
+  4: "Okay",
+  5: "Good",
+  6: "Very Good",
+  7: "Excellent",
+  8: "Outstanding",
+  9: "Exceptional",
+  10: "Perfect",
+};
 
 export const ratingColors: Record<RatingScale, string> = {
   [RatingScale["Very Bad"]]: "red",
